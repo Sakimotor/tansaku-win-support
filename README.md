@@ -1,139 +1,174 @@
-# Tansaku-he 精简生成链
+# Twilight Syndrome: Tansaku-hen Translation Kit
 
-这个包只保留“解包 -> 提取文本 -> 编辑译文 -> 生成 `cn.raw` -> 回写 -> 打包 ISO”的关键链路。
+《黄昏症候群 探索篇》（`Twilight Syndrome: Tansaku-hen`）逆向分析与多语言翻译构建工具链。
 
-目标是：
+这个仓库不发布游戏镜像，也不包含原始解包数据。它保存的是一条可以复现的翻译工程链路：从合法拥有的 PlayStation 原始镜像解包资源，提取脚本文本，编辑译文，重建脚本和字库资源，再重新打包为本地测试用的 `.bin/.cue`。
 
-- 别人拿到后能直接跑
-- 不把整个 30 多 GB 工程一起打包
-- 保留当前稳定的 `v1/v2` 文本基线
+## 项目定位
 
-## 包内包含
+这个仓库包含：
 
-- `scripts/`
-  核心构建脚本、校验脚本、一键 shell
-- `tools/mkpsxiso-2.20-Linux/bin/`
-  `dumpsxiso`、`mkpsxiso`
-- `seed/font/`
-  已提取好的 `font.db` 和 `KFONT.CDB.{0,1,2,3,5,7}.{txt,lst}`
-- `source/translated/`
-  预置 `v2` 基线译文，可直接编辑
-- `baselines/v2/`
-  `v2` 的 `translated` 和 `cnraw`，用于一键回退
-- `Tansaku-he.build.xml`
-  打包模板
+- 可运行的解包、文本提取、合并、构建、回写和打包脚本。
+- `source/translated/` 下的可编辑基线文本。
+- 可直接构建当前基线的 `seed/font/font.db` 与章节字表种子。
+- 当前稳定基线的 `translated` / `cn.raw` 快照。
+- `mkpsxiso` / `dumpsxiso` 工具及其随包许可证文档。
 
-## 没有包含什么
+这个仓库不包含：
 
-- 原始日版镜像
-- 完整 `work/file0` / `work/dst0` 解包结果
-- 字体重绘链、LLM 清洗链、历史版本快照
+- 原始游戏镜像。
+- `work/` 下的完整解包结果。
+- 重新打包后的 `.bin/.cue`。
+- 全量历史研发目录、旧版镜像、调试备份和大型产物。
 
-这样包体会保持很小，但仍能从原始镜像开始完整走通主流程。
+使用者需要自行准备合法拥有的原始日版镜像。
 
-## 运行环境
+## 快速开始
 
-- Linux / WSL
-- `bash`
-- `python3`
-
-这个精简包默认不依赖 `Pillow`，因为首次初始化直接使用已提取好的字体种子，不再强制跑 `fontdec`。
-
-## 推荐流程
-
-### 1. 从原始镜像解包并提取文本
+在仓库根目录执行：
 
 ```bash
 bash scripts/01_extract_from_disc.sh "/path/to/Twilight Syndrome - Tansaku-hen (Japan).cue"
-```
-
-这一步会：
-
-1. 用 `dumpsxiso` 解包到 `work/file0`
-2. 复制一份干净底稿到 `work/dst0`
-3. 写入 `seed/font` 里的字体元数据
-4. 对六章执行 `linkdec`
-5. 在 `work/file0/DAT/...` 下生成：
-   - `*.txt`
-   - `*.raw.txt`
-6. 如果 `source/translated` 缺文件，则用 raw 文本初始化
-
-### 2. 编辑译文
-
-直接改：
-
-- `source/translated/K0LINK.CDB.13.txt`
-- `source/translated/K1LINK.CDB.20.txt`
-- `source/translated/K2LINK.CDB.19.txt`
-- `source/translated/K3LINK.CDB.0.txt`
-- `source/translated/W4LINK.CDB.0.txt`
-- `source/translated/WXLINK.CDB.0.txt`
-
-包里预置的是 `v2` 基线译文，所以即使不改，也可以直接构建一次验证环境。
-
-### 3. 生成构建用 `cn.raw`
-
-```bash
 bash scripts/02_prepare_cnraw.sh
+bash scripts/03_build_iso.sh Tansaku-he_custom
 ```
 
-这一步会：
+输出文件：
 
-1. 检查说话人/行数
-2. 把 `source/translated` 严格套回 raw 控制符骨架
-3. 生成 `work/file0/DAT/.../*.cn.raw.txt`
+```text
+output/Tansaku-he_custom.bin
+output/Tansaku-he_custom.cue
+output/Tansaku-he_custom.sha256.txt
+```
 
-注意：
+完整运行链见 [docs/PIPELINE.md](docs/PIPELINE.md)。
 
-- `scripts/fix_cnraw_overflow.py --write` 是可选的
-- 它会直接删字符，不建议默认自动执行
+字库扩容机制见 [docs/FONT_EXPANSION.md](docs/FONT_EXPANSION.md)。
 
-### 4. 打包 ISO
+## 翻译入口
+
+解包后，编辑这些文件：
+
+```text
+source/translated/K0LINK.CDB.13.txt
+source/translated/K1LINK.CDB.20.txt
+source/translated/K2LINK.CDB.19.txt
+source/translated/K3LINK.CDB.0.txt
+source/translated/W4LINK.CDB.0.txt
+source/translated/WXLINK.CDB.0.txt
+```
+
+当前随仓库放入的是基线中文译文，但工具链并不限定只能做中文。只要文本控制符、行数和字库支持满足要求，也可以用于其他语言。
+
+编辑时必须注意：
+
+- 行数必须与提取出的 `*.raw.txt` 一致。
+- 控制符必须保留，例如 `<BEGIN>`、`<HEAD,3>`、`<RET>`、`<NEXT>`、`<END>`。
+- 角色名前缀结构要保持有效。
+- 每个显示段需要控制长度，避免文本框溢出。
+- 如果新增字符不在 `font.db` 中，需要先补字或重建字库。
+
+## 目录结构
+
+```text
+.
+├── README.md
+├── Tansaku-he.build.xml
+├── baselines/
+│   └── v2/
+│       ├── translated/
+│       └── cnraw/
+├── docs/
+│   ├── PIPELINE.md
+│   └── FONT_EXPANSION.md
+├── scripts/
+│   ├── 01_extract_from_disc.sh
+│   ├── 02_prepare_cnraw.sh
+│   ├── 03_build_iso.sh
+│   ├── 04_restore_v2_baseline.sh
+│   ├── main.py
+│   ├── linkdec.py
+│   ├── merge.py
+│   ├── build.py
+│   ├── patch.py
+│   ├── cdb.py
+│   └── cap*.work.ini
+├── seed/
+│   └── font/
+├── source/
+│   └── translated/
+└── tools/
+    └── mkpsxiso-2.20-Linux/
+```
+
+本地生成目录不会提交：
+
+```text
+work/
+output/
+```
+
+## 构建链路概览
+
+主链路：
+
+```text
+原始 cue/bin
+  -> dumpsxiso 解包
+  -> work/file0
+  -> linkdec 提取脚本
+  -> raw text + script JSON
+  -> source/translated 编辑译文
+  -> prepare_cn_raw_strict 生成 cn.raw
+  -> merge 合并回脚本 JSON
+  -> build 重建脚本与字库 bin
+  -> cdb.py 回写 CDB 分段
+  -> mkpsxiso 打包
+  -> output cue/bin
+```
+
+字库链路：
+
+```text
+font.db
+  -> 章节字表 KFONT.CDB.*.cn.txt
+  -> 章节字体二进制 KFONT.CDB.*.bin
+  -> DAT/FONT/KFONT.CDB
+  -> CAP*.EXE 字表补丁
+```
+
+## 运行环境
+
+最低要求：
+
+- Linux 或 WSL
+- `bash`
+- `python3`
+- `sha256sum`
+- 随包 `dumpsxiso`
+- 随包 `mkpsxiso`
+
+只有重新制作或统一重绘字形时才需要 Pillow：
 
 ```bash
-bash scripts/03_build_iso.sh Tansaku-he_custom_v1text
+python3 -m pip install pillow
 ```
 
-这一步会：
+当前精简仓库默认不需要 Pillow，因为 `seed/font/` 已经包含可构建的字库种子。
 
-1. 用 `work/file0` 重新覆盖 `work/dst0`
-2. 对六章依次执行 `patch -> merge -> build`
-3. 用 `cdb.py` 回写 `KxLINK.CDB` 和 `KFONT.CDB`
-4. 跑：
-   - `verify_writeback_consistency.py`
-   - `check_cmd2_flags.py`
-5. 用 `mkpsxiso` 输出到 `output/`
-
-最终产物：
-
-- `output/Tansaku-he_custom_v1text.bin`
-- `output/Tansaku-he_custom_v1text.cue`
-- `output/Tansaku-he_custom_v1text.sha256.txt`
-
-## 一键回退到 v2 文本
+## 恢复基线文本
 
 ```bash
 bash scripts/04_restore_v2_baseline.sh
 ```
 
-作用：
+这个命令会把 `baselines/v2/translated/` 恢复到 `source/translated/`。如果已经完成解包，也会同步恢复六个 `cn.raw` 到 `work/file0`。
 
-- 恢复 `source/translated` 到 `v2`
-- 如果已经完成解包，也同步恢复六个 `cn.raw`
+## 文档
 
-## 目录说明
+- [docs/PIPELINE.md](docs/PIPELINE.md)：完整可执行运行链。
+- [docs/FONT_EXPANSION.md](docs/FONT_EXPANSION.md)：扩容字库、字形重绘、EXE 字表重写和 CDB 回写机制。
 
-- `work/file0`
-  原始解包底稿，不直接打包
-- `work/dst0`
-  每次构建前由 `file0` 重置，实际写回目标
-- `source/translated`
-  人工编辑区
-- `output`
-  最终镜像输出目录
+## 法律说明
 
-## 已知约束
-
-- 这是当前项目的“主链精简包”，不是全量研发仓库
-- 默认针对《トワイライトシンドローム 探索編》当前这套目录/表地址/六章配置
-- 若要继续做字体扩容、字模重绘、LLM 批量修文，请回到原仓库
+本仓库只用于逆向研究、翻译和保存工作流，不分发游戏镜像或原始游戏数据。请只在合法拥有原盘的前提下使用。
