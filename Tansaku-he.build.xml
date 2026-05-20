@@ -1,0 +1,145 @@
+<iso_project image_name="build-output.bin" cue_sheet="build-output.cue">
+    <track type="data" xa_edc="false" new_type="false">
+        <identifiers system="PLAYSTATION" application="PLAYSTATION" volume="TWILIGHTSYNDROME" publisher="K.YAMADA" data_preparer="HUMAN" creation_date="1996012704470000+0"/>
+        <license file="work/dst0/license_data.dat"/>
+        <default_attributes gmt_offs="36" xa_attrib="16" xa_perm="1365" xa_gid="0" xa_uid="0"/>
+        <directory_tree gmt_offs="0" xa_perm="0">
+            <file name="SYSTEM.CNF" source="work/dst0/SYSTEM.CNF" type="data"/>
+            <file name="SLPS_001.02" source="work/dst0/SLPS_001.02" type="data"/>
+            <file name="CAP0.EXE" source="work/dst0/CAP0.EXE" type="data"/>
+            <file name="CAP1.EXE" source="work/dst0/CAP1.EXE" type="data"/>
+            <file name="CAP2.EXE" source="work/dst0/CAP2.EXE" type="data"/>
+            <file name="CAP3.EXE" source="work/dst0/CAP3.EXE" type="data"/>
+            <file name="CAP4.EXE" source="work/dst0/CAP4.EXE" type="data"/>
+            <file name="CAPX.EXE" source="work/dst0/CAPX.EXE" type="data"/>
+            <file name="MKUBI.EXE" source="work/dst0/MKUBI.EXE" type="data"/>
+            <file name="MNINO.EXE" source="work/dst0/MNINO.EXE" type="data"/>
+            <file name="MOP.EXE" source="work/dst0/MOP.EXE" type="data"/>
+            <file name="MOVER.EXE" source="work/dst0/MOVER.EXE" type="data"/>
+            <file name="MPRO.EXE" source="work/dst0/MPRO.EXE" type="data"/>
+            <file name="MRIKA.EXE" source="work/dst0/MRIKA.EXE" type="data"/>
+            <file name="MYOKO.EXE" source="work/dst0/MYOKO.EXE" type="data"/>
+            <file name="PROG.EXE" source="work/dst0/PROG.EXE" type="data"/>
+            <dir name="DAT">
+                <dir name="XA1" source="work/dst0/DAT/XA1">
+                    <file name="XAPACK00.BIN" source="work/dst0/DAT/XA1/XAPACK00.BIN" type="mixed"/>
+                    <file name="XAPACK01.BIN" source="work/dst0/DAT/XA1/XAPACK01.BIN" type="mixed"/>
+                    <file name="XAPACK02.BIN" source="work/dst0/DAT/XA1/XAPACK02.BIN" type="mixed"/>
+                    <file name="XAPACK03.BIN" source="work/dst0/DAT/XA1/XAPACK03.BIN" type="mixed"/>
+                    <file name="XAPACK04.BIN" source="work/dst0/DAT/XA1/XAPACK04.BIN" type="mixed"/>
+                    <file name="XAPACK05.BIN" source="work/dst0/DAT/XA1/XAPACK05.BIN" type="mixed"/>
+                    <file name="XAPACK06.BIN" source="work/dst0/DAT/XA1/XAPACK06.BIN" type="mixed"/>
+                    <file name="XAPACK07.BIN" source="work/dst0/DAT/XA1/XAPACK07.BIN" type="mixed"/>
+                    <file name="XAPACK08.BIN" source="work/dst0/DAT/XA1/XAPACK08.BIN" type="mixed"/>
+                    <file name="XAPACK09.BIN" source="work/dst0/DAT/XA1/XAPACK09.BIN" type="mixed"/>
+                    <file name="XAPACK10.BIN" source="work/dst0/DAT/XA1/XAPACK10.BIN" type="mixed"/>
+                    <file name="XAPACK11.BIN" source="work/dst0/DAT/XA1/XAPACK11.BIN" type="mixed"/>
+                    <file name="XAPACK12.BIN" source="work/dst0/DAT/XA1/XAPACK12.BIN" type="mixed"/>
+                    <file name="XAPACK13.BIN" source="work/dst0/DAT/XA1/XAPACK13.BIN" type="mixed"/>
+                    <file name="XAPACK14.BIN" source="work/dst0/DAT/XA1/XAPACK14.BIN" type="mixed"/>
+                    <file name="XAPACK15.BIN" source="work/dst0/DAT/XA1/XAPACK15.BIN" type="mixed"/>
+                    <file name="XAPACK16.BIN" source="work/dst0/DAT/XA1/XAPACK16.BIN" type="mixed"/>
+                    <file name="XAPACK17.BIN" source="work/dst0/DAT/XA1/XAPACK17.BIN" type="mixed"/>
+                    <file name="XAPACK18.BIN" source="work/dst0/DAT/XA1/XAPACK18.BIN" type="mixed"/>
+                    <file name="XAPACK19.BIN" source="work/dst0/DAT/XA1/XAPACK19.BIN" type="mixed"/>
+                    <file name="XAPACK20.BIN" source="work/dst0/DAT/XA1/XAPACK20.BIN" type="mixed"/>
+                    <file name="XAPACK21.BIN" source="work/dst0/DAT/XA1/XAPACK21.BIN" type="mixed"/>
+                    <file name="XAPACK22.BIN" source="work/dst0/DAT/XA1/XAPACK22.BIN" type="mixed"/>
+                    <file name="XAPACK23.BIN" source="work/dst0/DAT/XA1/XAPACK23.BIN" type="mixed"/>
+                    <file name="XAPACK24.BIN" source="work/dst0/DAT/XA1/XAPACK24.BIN" type="mixed"/>
+                    <file name="XAPACK25.BIN" source="work/dst0/DAT/XA1/XAPACK25.BIN" type="mixed"/>
+                    <file name="XAPACK26.BIN" source="work/dst0/DAT/XA1/XAPACK26.BIN" type="mixed"/>
+                    <file name="XAPACK27.BIN" source="work/dst0/DAT/XA1/XAPACK27.BIN" type="mixed"/>
+                    <file name="XAPACK28.BIN" source="work/dst0/DAT/XA1/XAPACK28.BIN" type="mixed"/>
+                    <file name="XAPACK29.BIN" source="work/dst0/DAT/XA1/XAPACK29.BIN" type="mixed"/>
+                </dir>
+                <dir name="XA2" source="work/dst0/DAT/XA2">
+                    <file name="XAPACK30.BIN" source="work/dst0/DAT/XA2/XAPACK30.BIN" type="mixed"/>
+                    <file name="XAPACK31.BIN" source="work/dst0/DAT/XA2/XAPACK31.BIN" type="mixed"/>
+                    <file name="XAPACK32.BIN" source="work/dst0/DAT/XA2/XAPACK32.BIN" type="mixed"/>
+                    <file name="XAPACK33.BIN" source="work/dst0/DAT/XA2/XAPACK33.BIN" type="mixed"/>
+                    <file name="XAPACK34.BIN" source="work/dst0/DAT/XA2/XAPACK34.BIN" type="mixed"/>
+                    <file name="XAPACK35.BIN" source="work/dst0/DAT/XA2/XAPACK35.BIN" type="mixed"/>
+                    <file name="XAPACK36.BIN" source="work/dst0/DAT/XA2/XAPACK36.BIN" type="mixed"/>
+                    <file name="XAPACK37.BIN" source="work/dst0/DAT/XA2/XAPACK37.BIN" type="mixed"/>
+                    <file name="XAPACK38.BIN" source="work/dst0/DAT/XA2/XAPACK38.BIN" type="mixed"/>
+                    <file name="XAPACK39.BIN" source="work/dst0/DAT/XA2/XAPACK39.BIN" type="mixed"/>
+                    <file name="XAPACK40.BIN" source="work/dst0/DAT/XA2/XAPACK40.BIN" type="mixed"/>
+                    <file name="XAPACK41.BIN" source="work/dst0/DAT/XA2/XAPACK41.BIN" type="mixed"/>
+                    <file name="XAPACK42.BIN" source="work/dst0/DAT/XA2/XAPACK42.BIN" type="mixed"/>
+                </dir>
+            </dir>
+            <dir name="DAT" source="work/dst0/DAT">
+                <file name="FONT1.TIM" source="work/dst0/DAT/FONT1.TIM" type="data"/>
+                <dir name="ALLCAP" source="work/dst0/DAT/ALLCAP">
+                    <file name="CTLINK.CDB" source="work/dst0/DAT/ALLCAP/CTLINK.CDB" type="data"/>
+                    <file name="KALINK.CDB" source="work/dst0/DAT/ALLCAP/KALINK.CDB" type="data"/>
+                </dir>
+                <dir name="CAP0" source="work/dst0/DAT/CAP0">
+                    <file name="HAN.CDB" source="work/dst0/DAT/CAP0/HAN.CDB" type="data"/>
+                    <file name="K0LINK.CDB" source="work/dst0/DAT/CAP0/K0LINK.CDB" type="data"/>
+                </dir>
+                <dir name="CAP1" source="work/dst0/DAT/CAP1">
+                    <file name="K1LINK.CDB" source="work/dst0/DAT/CAP1/K1LINK.CDB" type="data"/>
+                    <file name="S1C17E.CDB" source="work/dst0/DAT/CAP1/S1C17E.CDB" type="data"/>
+                    <file name="SIN.CDB" source="work/dst0/DAT/CAP1/SIN.CDB" type="data"/>
+                </dir>
+                <dir name="CAP2" source="work/dst0/DAT/CAP2">
+                    <file name="K2LINK.CDB" source="work/dst0/DAT/CAP2/K2LINK.CDB" type="data"/>
+                    <file name="KOU.CDB" source="work/dst0/DAT/CAP2/KOU.CDB" type="data"/>
+                </dir>
+                <dir name="CAP3" source="work/dst0/DAT/CAP3">
+                    <file name="K3LINK.CDB" source="work/dst0/DAT/CAP3/K3LINK.CDB" type="data"/>
+                    <file name="S3C16.CDB" source="work/dst0/DAT/CAP3/S3C16.CDB" type="data"/>
+                    <file name="YON.CDB" source="work/dst0/DAT/CAP3/YON.CDB" type="data"/>
+                </dir>
+                <dir name="CAP4" source="work/dst0/DAT/CAP4">
+                    <file name="K4LINK.CDB" source="work/dst0/DAT/CAP4/K4LINK.CDB" type="data"/>
+                    <file name="NAN.CDB" source="work/dst0/DAT/CAP4/NAN.CDB" type="data"/>
+                    <file name="W4LINK.CDB" source="work/dst0/DAT/CAP4/W4LINK.CDB" type="data"/>
+                </dir>
+                <dir name="CAPX" source="work/dst0/DAT/CAPX">
+                    <file name="HIN.CDB" source="work/dst0/DAT/CAPX/HIN.CDB" type="data"/>
+                    <file name="KXLINK.CDB" source="work/dst0/DAT/CAPX/KXLINK.CDB" type="data"/>
+                    <file name="WXLINK.CDB" source="work/dst0/DAT/CAPX/WXLINK.CDB" type="data"/>
+                </dir>
+                <dir name="ENDING" source="work/dst0/DAT/ENDING">
+                    <file name="ENDING.BIN" source="work/dst0/DAT/ENDING/ENDING.BIN" type="data"/>
+                </dir>
+                <dir name="FONT" source="work/dst0/DAT/FONT">
+                    <file name="KFONT.CDB" source="work/dst0/DAT/FONT/KFONT.CDB" type="data"/>
+                </dir>
+                <dir name="HITO" source="work/dst0/DAT/HITO">
+                    <file name="AFRM.CDB" source="work/dst0/DAT/HITO/AFRM.CDB" type="data"/>
+                    <file name="SIKFORM.CDB" source="work/dst0/DAT/HITO/SIKFORM.CDB" type="data"/>
+                </dir>
+                <dir name="LIFE" source="work/dst0/DAT/LIFE">
+                    <file name="LMLINK.CDB" source="work/dst0/DAT/LIFE/LMLINK.CDB" type="data"/>
+                </dir>
+                <dir name="MOVIE" source="work/dst0/DAT/MOVIE">
+                    <file name="GAI.STR" source="work/dst0/DAT/MOVIE/GAI.STR" type="mixed" xa_attrib="56"/>
+                    <file name="KIKU.STR" source="work/dst0/DAT/MOVIE/KIKU.STR" type="mixed" xa_attrib="56"/>
+                    <file name="KUBI.STR" source="work/dst0/DAT/MOVIE/KUBI.STR" type="mixed" xa_attrib="56"/>
+                    <file name="NINO.STR" source="work/dst0/DAT/MOVIE/NINO.STR" type="mixed" xa_attrib="56"/>
+                    <file name="OP.STR" source="work/dst0/DAT/MOVIE/OP.STR" type="mixed" xa_attrib="56"/>
+                    <file name="PRO.STR" source="work/dst0/DAT/MOVIE/PRO.STR" type="mixed" xa_attrib="56"/>
+                    <file name="YOKO.STR" source="work/dst0/DAT/MOVIE/YOKO.STR" type="mixed" xa_attrib="56"/>
+                </dir>
+                <dir name="SINKOU" source="work/dst0/DAT/SINKOU">
+                    <file name="ALLLINK.CDB" source="work/dst0/DAT/SINKOU/ALLLINK.CDB" type="data"/>
+                    <file name="ICON1.TIM" source="work/dst0/DAT/SINKOU/ICON1.TIM" type="data"/>
+                    <file name="ICON2.TIM" source="work/dst0/DAT/SINKOU/ICON2.TIM" type="data"/>
+                    <file name="ICON3.TIM" source="work/dst0/DAT/SINKOU/ICON3.TIM" type="data"/>
+                    <file name="MEMDAT.BIN" source="work/dst0/DAT/SINKOU/MEMDAT.BIN" type="data"/>
+                    <file name="MENUDAT.BIN" source="work/dst0/DAT/SINKOU/MENUDAT.BIN" type="data"/>
+                    <file name="PROG.VB" source="work/dst0/DAT/SINKOU/PROG.VB" type="data"/>
+                    <file name="PROGDAT.BIN" source="work/dst0/DAT/SINKOU/PROGDAT.BIN" type="data"/>
+                    <file name="PROGHEAD.CDB" source="work/dst0/DAT/SINKOU/PROGHEAD.CDB" type="data"/>
+                    <file name="PROGVAB.CDB" source="work/dst0/DAT/SINKOU/PROGVAB.CDB" type="data"/>
+                </dir>
+            </dir>
+            <file name="DUM.BIN" source="work/dst0/DUM.BIN" type="data"/>
+            <dummy sectors="150" type="0"/>
+        </directory_tree>
+    </track>
+</iso_project>
