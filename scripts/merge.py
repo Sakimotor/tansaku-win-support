@@ -94,13 +94,26 @@ def makeTbl(src, dst, cs, need):
             n += 1
 
 def headfix(line, di):
-    headRe = re.compile(r'<HEAD,(\d)>')
+    headRe = re.compile(r'<HEAD,(\d+)>')
     for m in headRe.finditer(line):
         n = int(m.group(1))
-        idx = line.index(':', m.end(0))
-        n2 = idx - m.end(0)
-        # ユカリ·チサト
-        assert n2 > 0 and n2 <= 7, "{},{},{},{}".format(n, n2, di, line)
+        start = m.end(0)
+        next_ctrl = line.find('<', start)
+        colon_candidates = [p for p in (line.find(':', start), line.find('：', start)) if p != -1]
+        if not colon_candidates:
+            continue
+
+        idx = min(colon_candidates)
+        if next_ctrl != -1 and next_ctrl < idx:
+            continue
+
+        n2 = idx - start
+        # Some HEAD commands are not speaker-name prefixes. Only auto-fix
+        # normal short "name:" prefixes and leave other HEAD text untouched.
+        if n2 <= 0 or n2 > 7:
+            continue
+        if line[idx] == '：':
+            line = line[:idx] + ':' + line[idx + 1:]
         if n != n2:
             line = line[:m.start(1)] + str(n2) + line[m.end(1):]
     return line
